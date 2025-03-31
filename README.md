@@ -1,5 +1,5 @@
 # The AI Impact on Design Patterns
-
+*(under construction)*
 ## Introduction
 
 Design patterns are well-established solutions to common software design problems. With the emergence of Artificial Intelligence (AI), these patterns are evolving to accommodate dynamic, data-driven decision-making. AI enhances traditional design patterns by introducing adaptability, automation, and predictive capabilities.
