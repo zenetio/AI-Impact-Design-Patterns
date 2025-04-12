@@ -1,61 +1,43 @@
-from PIL import Image, ImageDraw
+import matplotlib.pyplot as plt
 
-def draw_ai_enhanced_factory_diagram(output_path="images/ai_factory_diagram4.jpg"):
-    """
-    Generates a diagram illustrating the AI-Enhanced Factory Pattern 
-    as described in ai_factory2.py using PIL.
+# Create the figure and axis
+fig, ax = plt.subplots(figsize=(8, 6))
 
-    Args:
-        output_path (str): The path to save the generated JPG image.
-    """
+# Draw the Factory class (AIProductFactory)
+ax.add_patch(plt.Rectangle((3, 5), 2, 1, fill=True, edgecolor='black', facecolor='lightblue'))
+ax.text(4, 5.5, 'AIProductFactory', fontsize=10, ha='center', va='center', fontweight='bold')
 
-    img_width = 800
-    img_height = 400
-    image = Image.new("RGB", (img_width, img_height), "white")
-    draw = ImageDraw.Draw(image)
+# Draw the decision paths
+ax.arrow(4, 5, -1.5, -1, head_width=0.2, head_length=0.2, fc='black', ec='black')
+ax.arrow(4, 5, 0, -1, head_width=0.2, head_length=0.2, fc='black', ec='black')
+ax.arrow(4, 5, 1.5, -1, head_width=0.2, head_length=0.2, fc='black', ec='black')
 
-    # Define positions and sizes for the boxes
-    box_width = 150
-    box_height = 80
-    vertical_spacing = 120
-    horizontal_spacing = 250
+# Draw product outputs
+ax.add_patch(plt.Rectangle((1, 3), 2, 1, fill=True, edgecolor='black', facecolor='lightgreen'))
+ax.text(2, 3.5, 'Product A\n(Simple Item)', fontsize=9, ha='center', va='center')
 
-    # Traditional Factory Box
-    x1, y1 = 50, 50
-    draw.rectangle((x1, y1, x1 + box_width, y1 + box_height), fill="lightgray", outline="black")
-    draw.text((x1 + 10, y1 + 20), "Traditional Factory\n(Fixed Pattern)", fill="black")
+ax.add_patch(plt.Rectangle((3, 3), 2, 1, fill=True, edgecolor='black', facecolor='lightcoral'))
+ax.text(4, 3.5, 'Product B\n(Blue)', fontsize=9, ha='center', va='center')
 
-    # Factory Method Box
-    x2, y2 = x1 + horizontal_spacing, y1
-    draw.rectangle((x2, y2, x2 + box_width, y2 + box_height), fill="lightgray", outline="black")
-    draw.text((x2 + 10, y2 + 20), "Factory Method\n(Static Logic)", fill="black")
+ax.add_patch(plt.Rectangle((5, 3), 2, 1, fill=True, edgecolor='black', facecolor='lightyellow'))
+ax.text(6, 3.5, 'Product A\n(Complex Item)', fontsize=9, ha='center', va='center')
 
-    # Concrete Product Box
-    x3, y3 = x2 + horizontal_spacing, y1
-    draw.rectangle((x3, y3, x3 + box_width, y3 + box_height), fill="lightgray", outline="black")
-    draw.text((x3 + 10, y3 + 20), "Concrete Product\n(A/B)", fill="black")
+# Add labels for decision conditions
+ax.text(2.5, 4.2, 'complexity = "easy"', fontsize=9, ha='center', va='center')
+ax.text(4, 4.4, 'complexity = "medium"', fontsize=9, ha='center', va='center')
+ax.text(5.5, 4.2, 'complexity = "hard"', fontsize=9, ha='center', va='center')
 
-    # AI Engine Box
-    x4, y4 = x1, y1 + vertical_spacing
-    draw.rectangle((x4, y4, x4 + box_width, y4 + box_height), fill="lightgray", outline="black")
-    draw.text((x4 + 10, y4 + 20), "AI Engine\n(Decision Making,\nParameter Tuning)", fill="black")
+# Remove axes
+ax.set_xticks([])
+ax.set_yticks([])
+ax.set_xlim(0, 8)
+ax.set_ylim(2, 7)
+ax.axis('off')
 
-    # Arrows
-    arrow_head_length = 30
-    arrow_cap_width = 10
+# Save the illustration
+image_path = "./images/ai_factory_diagram4.jpg"
+plt.savefig(image_path, dpi=300, bbox_inches='tight')
+plt.show()
 
-    # Arrow from Traditional Factory to Factory Method
-    draw.polygon([(x1 + box_width // 2, y1 + box_height), (x2, y2)], fill="black", outline="black")
-
-    # Arrow from Factory Method to Concrete Product
-    draw.polygon([(x2 + box_width // 2, y2 + box_height), (x3, y3)], fill="black", outline="black")
-
-    # Arrow from AI Engine to all boxes
-    draw.polygon([(x4 + box_width//2, y4+box_height), (x1,y1)], fill="black", outline="black")
-
-
-    image.save(output_path)
-    print(f"Diagram saved to {output_path}")
-
-if __name__ == '__main__':
-    draw_ai_enhanced_factory_diagram()
+# Provide the path for download
+image_path

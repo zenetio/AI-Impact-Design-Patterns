@@ -102,7 +102,7 @@ product2.display()
 
 ```
 
-![./images/factory.png](./images/ai_factory_diagram.jpg)
+![./images/factory.png](./images/ai_factory_diagram4.jpg)
 
 - A decision tree that routes requests to the best-fit AI model.
 
@@ -141,7 +141,7 @@ model2 = AIModelSingleton("GPT-4")
 print(model1 is model2)  # True
 ```
 
-**Illustration:**
+![./images/ai_singleton.png](./images/ai_singleton_diagram.jpg)
 
 - AI-powered recommendation system caching a single instance of a model to avoid redundant loads.
 
@@ -174,9 +174,13 @@ adapter = AIAdapter(old_system)
 print(adapter.predict("input data"))
 ```
 
-**Illustration:**
+![./images/ai_adapter.png](./images/ai_adapter_diagram.jpg)
 
 - Adapter acting as a bridge between a traditional rule-based system and an AI-powered model.
+- Dynamic Behavior: Unlike traditional adapters that simply translate interfaces, AI adapters can:
+  - Pre-process data for AI models
+  - Post-process AI model outputs to match legacy system expectations
+  - Handle data format conversions between different systems
 
 ---
 
