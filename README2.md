@@ -212,7 +212,14 @@ ai_classifier = AIEnhancedClassifier(classifier)
 print(ai_classifier.classify("data"))
 ```
 
-**Illustration:**
+![./images/ai_decorator.jpg](./images/ai_decorator_diagram.jpg)
+
+**Overall Flow:**
+1. The client sends a request to the AIEnhancedClassifier.
+2. The AIEnhancedClassifier delegates the base classification task to the BaseClassifier.
+3. The BaseClassifier processes the data and returns the result to the AIEnhancedClassifier.
+4. The AIEnhancedClassifier sends the result to the AI Enhancement Layer for additional AI-based processing.
+5. The AI Enhancement Layer returns the enhanced output to the AIEnhancedClassifier, which then provides the final result to the client.
 
 - A base classifier wrapped with AI-based sentiment analysis.
 
