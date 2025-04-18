@@ -28,7 +28,7 @@ ax.arrow(4, 4.5, -1, 0, head_width=0.2, head_length=0.2, fc='black', ec='black')
 ax.text(3, 4.7, 'Base Classification', fontsize=9, ha='center', va='center')
 
 # From BaseClassifier to AIEnhancedClassifier
-ax.arrow(2, 4, 2, 0, head_width=0.2, head_length=0.2, fc='black', ec='black')
+ax.arrow(3, 4.2, 0.8, 0, head_width=0.2, head_length=0.2, fc='black', ec='black')
 ax.text(3, 3.7, 'Processed Data', fontsize=9, ha='center', va='center')
 
 # From AIEnhancedClassifier to AI Enhancement Layer
