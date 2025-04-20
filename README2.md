@@ -1,5 +1,19 @@
 # The AI Impact on Design Patterns
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Factory Pattern: AI-Powered Model Selection](#1-factory-pattern-ai-powered-model-selection)
+- [Singleton Pattern: AI Model Caching](#2-singleton-pattern-ai-model-caching)
+- [Adapter Pattern: AI API Integration](#3-adapter-pattern-ai-api-integration)
+- [Decorator Pattern: AI-Based Feature Augmentation](#4-decorator-pattern-ai-based-feature-augmentation)
+- [Observer Pattern: AI-Driven Event Handling](#5-observer-pattern-ai-driven-event-handling)
+- [Builder Pattern: AI-Driven Configuration](#6-builder-pattern-ai-driven-configuration)
+- [Strategy Pattern: AI Dynamic Decision-Making](#7-strategy-pattern-ai-dynamic-decision-making)
+- [Chain of Responsibility](#chain-of-responsibility)
+- [Conclusion](#conclusion)
+- [Feedback & Next Steps](#feedback--next-steps)
+
 ## Introduction
 
 Design patterns are well-established solutions to common software design problems. With the emergence of Artificial Intelligence (AI), these patterns are evolving to accommodate dynamic, data-driven decision-making. AI enhances traditional design patterns by introducing adaptability, automation, and predictive capabilities.
@@ -262,9 +276,20 @@ class AIThreatAnalyzer:
         return "malware" in event_data.lower()
 ```
 
-**Illustration:**
+```bash
+# Generate the AI Observer diagram
+python draw_ai_observer.py
+```
 
-- AI-powered cybersecurity system filtering false positives.
+![./images/ai_observer.jpg](./images/ai_observer_diagram.jpg)
+
+- AI-powered cybersecurity system filtering security events.
+
+**Overall Flow:**
+1. The client sends `Event Data` → SecuritySystem (input arrow on the left).
+2. SecuritySystem → AIThreatAnalyzer (`is_real_threat()` call, top middle arrow).
+3. SecuritySystem → SecurityAlert (`notify_observers()` call, bottom middle arrow).
+4. SecurityAlert → client (`Alert` output arrow on the right).
 
 ---
 
@@ -300,8 +325,15 @@ print(model)
 ```
 
 **Illustration:**
+![./images/ai_builder.jpg](./images/ai_builder_diagram.jpg)
 
 - AI auto-configuring neural network hyperparameters.
+
+**Overall Flow:**
+1. Client sends `Config Params` → AIModelBuilder (input arrow on the left).
+2. AIModelBuilder calls `set_layers()` and `set_optimizer()` (vertical arrows on the builder box).
+3. AIModelBuilder → Model (`build()` call, horizontal arrow).
+4. Model → client (output arrow on the right).
 
 ---
 
@@ -329,13 +361,40 @@ class CollaborativeFiltering(Strategy):
         return "Collaborative filtering recommendation"
 ```
 
-**Illustration:**
+```bash
+# Generate the AI Strategy diagram
+python draw_ai_strategy.py
+```
+
+![./images/ai_strategy.jpg](./images/ai_strategy_diagram.jpg)
 
 - AI choosing the best recommendation approach.
 
----
+**Overall Flow:**
+1. Client sends `user_data` → chosen strategy (input arrow on the left).  
+2. Strategy executes `recommend(user_data)`.  
+3. Strategy returns recommendation → client (output arrow on the right).
+
+**AI Enhancement:**
+- The Strategy Pattern enables dynamic selection among multiple algorithms.
+- In a real-world AI system, `user_data` (e.g., preferences, behavior) would feed into ML or heuristic models within each strategy.
+- The client or a controller could automatically pick or weight strategies based on data-driven insights, making recommendations adaptive and personalized.
+
+--- 
 
 ## Conclusion
 
 AI is revolutionizing design patterns by making them dynamic, adaptive, and data-driven. By integrating AI, software architectures become more intelligent, scalable, and efficient.
+
+---
+
+## Feedback & Next Steps
+
+- Add a **Table of Contents** at the top for quick navigation to each pattern.
+- Provide live links to example scripts (`draw_ai_*.py` and `ai_*.py`) in the repo.
+- Include a small **Prerequisites** section (e.g., Python, Matplotlib) and how to install them (`pip install matplotlib`).
+- Consider adding a **Chain of Responsibility** example or linking to it if implemented elsewhere.
+- Ensure all image filenames and references are consistent (e.g., `_diagram.jpg` vs. `.jpg`).
+- Add code snippets that show how to select AI‑enhanced vs. traditional implementations at runtime.
+- Offer pointers to further reading or related patterns (e.g., MVC, Command) for readers who want to explore more.
 
