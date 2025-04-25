@@ -10,7 +10,7 @@
 - [Observer Pattern: AI-Driven Event Handling](#5-observer-pattern-ai-driven-event-handling)
 - [Builder Pattern: AI-Driven Configuration](#6-builder-pattern-ai-driven-configuration)
 - [Strategy Pattern: AI Dynamic Decision-Making](#7-strategy-pattern-ai-dynamic-decision-making)
-- [Chain of Responsibility](#chain-of-responsibility)
+- [Chain of Responsibility](#8-chain-of-responsibility-ai-enhanced-request-handling)
 - [Conclusion](#conclusion)
 - [Feedback & Next Steps](#feedback--next-steps)
 
@@ -380,7 +380,91 @@ python draw_ai_strategy.py
 - In a real-world AI system, `user_data` (e.g., preferences, behavior) would feed into ML or heuristic models within each strategy.
 - The client or a controller could automatically pick or weight strategies based on data-driven insights, making recommendations adaptive and personalized.
 
---- 
+---
+
+## 8. Chain of Responsibility: AI-Enhanced Request Handling
+
+### **Traditional Use**
+
+Allows a request to be passed along a chain of handlers until one handles it.
+
+```python
+# ai_chain_of_responsibility.py
+class Handler:
+    def __init__(self, successor=None):
+        self.successor = successor
+
+    def handle(self, request):
+        if self.can_handle(request):
+            return f"Handled by {self.__class__.__name__}"
+        elif self.successor:
+            return self.successor.handle(request)
+        return "Request not handled"
+
+    def can_handle(self, request):
+        raise NotImplementedError()
+
+class ConcreteHandlerA(Handler):
+    def can_handle(self, request):
+        return request < 10
+
+class ConcreteHandlerB(Handler):
+    def can_handle(self, request):
+        return 10 <= request < 20
+
+class ConcreteHandlerC(Handler):
+    def can_handle(self, request):
+        return request >= 20
+
+# Traditional usage
+target_chain = ConcreteHandlerA(ConcreteHandlerB(ConcreteHandlerC()))
+for r in [5, 15, 25]:
+    print(f"Request: {r} -> {target_chain.handle(r)}")
+```
+
+### **AI Enhancement**
+
+AI dynamically selects the best handler based on request characteristics.
+
+```python
+# ai_chain_of_responsibility.py (AI-Enhanced usage)
+import random
+
+class AIHandler:
+    def __init__(self, handlers):
+        self.handlers = handlers
+
+    def handle(self, request):
+        selected = max(self.handlers, key=lambda h: random.random())
+        return f"AI selected {selected.__class__.__name__} -> {selected.handle(request)}"
+
+handlers = [ConcreteHandlerA(), ConcreteHandlerB(), ConcreteHandlerC()]
+ai_handler = AIHandler(handlers)
+for r in [5, 15, 25]:
+    print(f"AI Request: {r} -> {ai_handler.handle(r)}")
+```
+
+```bash
+# Generate the AI Chain of Responsibility diagram
+python draw_ai_chain_of_responsibility.py
+```
+
+![./images/ai_chain_of_responsibility.jpg](./images/ai_chain_of_responsibility.jpg)
+
+- AI-enhanced chain that learns optimal handler selection from data.
+
+**Overall Flow:**
+- **Traditional Chain:**
+  1. Client sends `request` to **Handler A**.
+  2. **Handler A** processes (`can_handle`) or forwards to **Handler B**.
+  3. **Handler B** processes or forwards to **Handler C**.
+  4. **Handler C** processes if possible; otherwise request is unhandled.
+- **AI-Enhanced Chain:**
+  1. Client sends `request` to **AI Selector** node.
+  2. **AI Selector** predicts the best handler based on request data.
+  3. Predicted **Handler** executes `handle(request)` and returns result.
+
+---
 
 ## Conclusion
 
