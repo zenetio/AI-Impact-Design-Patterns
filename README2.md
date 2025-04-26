@@ -16,11 +16,11 @@
 
 ## Introduction
 
-Design patterns are well-established solutions to common software design problems. With the emergence of Artificial Intelligence (AI), these patterns are evolving to accommodate dynamic, data-driven decision-making. AI enhances traditional design patterns by introducing adaptability, automation, and predictive capabilities.
+Design patterns are well-established solutions to common software design problems. With the emergence of Artificial Intelligence (AI), these patterns are evolving to accommodate dynamic, data-driven decision-making. **AI enhances** traditional design patterns by introducing adaptability, automation, and predictive capabilities.
 
 This article explores how AI influences popular design patterns, with real-world examples and illustrations.
 
-To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find more patterns in my repo, here.
+To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find all the source codes and figues in my repo, [here](https://github.com/zenetio).
 
 ---
 
@@ -472,13 +472,7 @@ AI is revolutionizing design patterns by making them dynamic, adaptive, and data
 
 ---
 
-## Feedback & Next Steps
+Thanks for reading. If you think it’s helpful, please clap 👏 for this article. Your encouragement and comments mean a lot to me, mentally and financially. 😊
 
-- Add a **Table of Contents** at the top for quick navigation to each pattern.
-- Provide live links to example scripts (`draw_ai_*.py` and `ai_*.py`) in the repo.
-- Include a small **Prerequisites** section (e.g., Python, Matplotlib) and how to install them (`pip install matplotlib`).
-- Consider adding a **Chain of Responsibility** example or linking to it if implemented elsewhere.
-- Ensure all image filenames and references are consistent (e.g., `_diagram.jpg` vs. `.jpg`).
-- Add code snippets that show how to select AI‑enhanced vs. traditional implementations at runtime.
-- Offer pointers to further reading or related patterns (e.g., MVC, Command) for readers who want to explore more.
-
+## My contacts
+[LinkedIn](https://www.linkedin.com/in/carlos-lacerda-3789645/) | [YouTube](https://www.youtube.com/channel/UC1bYt9VX4O6bl6-cmHH8jgQ) | [GitHub](https://github.com/zenetio) | [X](https://x.com/carlosrl0310)
