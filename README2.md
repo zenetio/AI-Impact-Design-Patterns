@@ -12,7 +12,7 @@
 - [Strategy Pattern: AI Dynamic Decision-Making](#7-strategy-pattern-ai-dynamic-decision-making)
 - [Chain of Responsibility](#8-chain-of-responsibility-ai-enhanced-request-handling)
 - [Conclusion](#conclusion)
-- [Feedback & Next Steps](#feedback--next-steps)
+- [My Contacts](#my-contacts)
 
 ## Introduction
 
@@ -20,7 +20,7 @@ Design patterns are well-established solutions to common software design problem
 
 This article explores how AI influences popular design patterns, with real-world examples and illustrations.
 
-To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find all the source codes and figues in my repo, [here](https://github.com/zenetio).
+To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find all the source codes and figures in my repo, [here](https://github.com/zenetio).
 
 ---
 
@@ -388,6 +388,11 @@ python draw_ai_strategy.py
 
 Allows a request to be passed along a chain of handlers until one handles it.
 
+### **AI Enhancement**
+
+AI dynamically selects the best handler based on request characteristics.
+
+
 ```python
 # ai_chain_of_responsibility.py
 class Handler:
@@ -421,10 +426,6 @@ target_chain = ConcreteHandlerA(ConcreteHandlerB(ConcreteHandlerC()))
 for r in [5, 15, 25]:
     print(f"Request: {r} -> {target_chain.handle(r)}")
 ```
-
-### **AI Enhancement**
-
-AI dynamically selects the best handler based on request characteristics.
 
 ```python
 # ai_chain_of_responsibility.py (AI-Enhanced usage)
