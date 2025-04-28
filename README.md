@@ -12,7 +12,7 @@
 - [Strategy Pattern: AI Dynamic Decision-Making](#7-strategy-pattern-ai-dynamic-decision-making)
 - [Chain of Responsibility](#8-chain-of-responsibility-ai-enhanced-request-handling)
 - [Conclusion](#conclusion)
-- [Feedback & Next Steps](#feedback--next-steps)
+- [My Contacts](#my-contacts)
 
 ## Introduction
 
@@ -20,7 +20,7 @@ Design patterns are well-established solutions to common software design problem
 
 This article explores how AI influences popular design patterns, with real-world examples and illustrations.
 
-To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find all the source codes and figues in my repo, [here](https://github.com/zenetio).
+To avoid a too big article, I will only cover the following patterns: Factory, Singleton, Adapter, Decorator, Observer, Builder, Strategy, and Chain of Responsibility. You can find all the source codes and figures in my repo, [here](https://github.com/zenetio).
 
 ---
 
@@ -388,6 +388,11 @@ python draw_ai_strategy.py
 
 Allows a request to be passed along a chain of handlers until one handles it.
 
+### **AI Enhancement**
+
+AI dynamically selects the best handler based on request characteristics.
+
+
 ```python
 # ai_chain_of_responsibility.py
 class Handler:
@@ -421,10 +426,6 @@ target_chain = ConcreteHandlerA(ConcreteHandlerB(ConcreteHandlerC()))
 for r in [5, 15, 25]:
     print(f"Request: {r} -> {target_chain.handle(r)}")
 ```
-
-### **AI Enhancement**
-
-AI dynamically selects the best handler based on request characteristics.
 
 ```python
 # ai_chain_of_responsibility.py (AI-Enhanced usage)
@@ -472,13 +473,7 @@ AI is revolutionizing design patterns by making them dynamic, adaptive, and data
 
 ---
 
-## Feedback & Next Steps
+Thanks for reading. If you think it’s helpful, please clap 👏 for this article. Your encouragement and comments mean a lot to me, mentally and financially. 😊
 
-- Add a **Table of Contents** at the top for quick navigation to each pattern.
-- Provide live links to example scripts (`draw_ai_*.py` and `ai_*.py`) in the repo.
-- Include a small **Prerequisites** section (e.g., Python, Matplotlib) and how to install them (`pip install matplotlib`).
-- Consider adding a **Chain of Responsibility** example or linking to it if implemented elsewhere.
-- Ensure all image filenames and references are consistent (e.g., `_diagram.jpg` vs. `.jpg`).
-- Add code snippets that show how to select AI‑enhanced vs. traditional implementations at runtime.
-- Offer pointers to further reading or related patterns (e.g., MVC, Command) for readers who want to explore more.
-
+## My contacts
+[LinkedIn](https://www.linkedin.com/in/carlos-lacerda-3789645/) | [YouTube](https://www.youtube.com/channel/UC1bYt9VX4O6bl6-cmHH8jgQ) | [GitHub](https://github.com/zenetio) | [X](https://x.com/carlosrl0310)
